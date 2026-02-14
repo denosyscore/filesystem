@@ -8,11 +8,11 @@
     "league/flysystem": "^3.30",
     "league/flysystem-aws-s3-v3": "^3.30",
     "symfony/filesystem": "^7.3",
-    "denosyscore/contracts": "^0.1"
+    "denosyscore/contracts": "^0.2"
   },
   "autoload": {
     "psr-4": {
-      "CFXP\\Core\\": "src/"
+      "Denosys\\\\Filesystem\\\\": "src/Filesystem/"
     }
   },
   "config": {

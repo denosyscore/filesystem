@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace CFXP\Core\Filesystem;
+namespace Denosys\Filesystem;
 
 use League\Flysystem\Filesystem as FlysystemFilesystem;
 use League\Flysystem\Local\LocalFilesystemAdapter;
-use CFXP\Core\Config\ConfigurationInterface;
-use CFXP\Core\Filesystem\Exceptions\InvalidDiskException;
+use Denosys\Config\ConfigurationInterface;
+use Denosys\Filesystem\Exceptions\InvalidDiskException;
 
 /**
  * Filesystem manager for handling multiple disks.

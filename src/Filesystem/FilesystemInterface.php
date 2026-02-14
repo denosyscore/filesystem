@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CFXP\Core\Filesystem;
+namespace Denosys\Filesystem;
 
 use Psr\Http\Message\UploadedFileInterface;
 

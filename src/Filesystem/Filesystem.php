@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace CFXP\Core\Filesystem;
+namespace Denosys\Filesystem;
 
 use League\Flysystem\FilesystemOperator;
 use League\Flysystem\UnableToReadFile;
 use League\Flysystem\UnableToWriteFile;
 use League\Flysystem\StorageAttributes;
 use Psr\Http\Message\UploadedFileInterface;
-use CFXP\Core\Filesystem\Exceptions\FileNotFoundException;
-use CFXP\Core\Filesystem\Exceptions\FileWriteException;
+use Denosys\Filesystem\Exceptions\FileNotFoundException;
+use Denosys\Filesystem\Exceptions\FileWriteException;
 
 /**
  * Filesystem implementation wrapping Flysystem.

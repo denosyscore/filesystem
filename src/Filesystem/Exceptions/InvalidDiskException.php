@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CFXP\Core\Filesystem\Exceptions;
+namespace Denosys\Filesystem\Exceptions;
 
 use InvalidArgumentException;
 

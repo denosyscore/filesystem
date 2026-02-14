@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace CFXP\Core\Filesystem;
+namespace Denosys\Filesystem;
 
-use CFXP\Core\Container\ContainerInterface;
-use CFXP\Core\ServiceProviderInterface;
+use Denosys\Container\ContainerInterface;
+use Denosys\Contracts\ServiceProviderInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 
 /**
@@ -17,7 +17,7 @@ class FilesystemServiceProvider implements ServiceProviderInterface
     {
         $container->singleton(FilesystemManager::class, function (ContainerInterface $container) {
             return new FilesystemManager(
-                $container->get(\CFXP\Core\Config\ConfigurationInterface::class),
+                $container->get(\Denosys\Config\ConfigurationInterface::class),
                 $container->get('path.storage') . '/app'
             );
         });
