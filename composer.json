@@ -1,0 +1,21 @@
+{
+  "name": "denosyscore/filesystem",
+  "description": "Filesystem management and disk abstractions",
+  "type": "library",
+  "license": "MIT",
+  "require": {
+    "php": "^8.2",
+    "league/flysystem": "^3.30",
+    "league/flysystem-aws-s3-v3": "^3.30",
+    "symfony/filesystem": "^7.3",
+    "denosyscore/contracts": "^0.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "CFXP\\Core\\": "src/"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  }
+}
