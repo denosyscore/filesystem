@@ -8,12 +8,16 @@
     "league/flysystem": "^3.30",
     "league/flysystem-aws-s3-v3": "^3.30",
     "symfony/filesystem": "^7.3",
-    "denosyscore/contracts": "^0.2"
+    "denosyscore/container": "^0.2",
+    "denosyscore/contracts": "^0.2.4"
   },
   "autoload": {
     "psr-4": {
       "Denosys\\Filesystem\\": "src/Filesystem/"
     }
+  },
+  "scripts": {
+    "test": "php tests/standalone.php"
   },
   "config": {
     "sort-packages": true

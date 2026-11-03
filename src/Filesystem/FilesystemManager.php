@@ -6,7 +6,7 @@ namespace Denosys\Filesystem;
 
 use League\Flysystem\Filesystem as FlysystemFilesystem;
 use League\Flysystem\Local\LocalFilesystemAdapter;
-use Denosys\Config\ConfigurationInterface;
+use Denosys\Contracts\Config\ConfigurationReaderInterface;
 use Denosys\Filesystem\Exceptions\InvalidDiskException;
 
 /**
@@ -18,7 +18,7 @@ class FilesystemManager
     private array $disks = [];
 
     public function __construct(
-        private ConfigurationInterface $config,
+        private ConfigurationReaderInterface $config,
         private ?string $defaultLocalRoot = null
     ) {
     }

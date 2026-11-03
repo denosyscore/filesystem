@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Denosys\Filesystem;
 
 use Denosys\Container\ContainerInterface;
+use Denosys\Contracts\Config\ConfigurationReaderInterface;
 use Denosys\Contracts\ServiceProviderInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 
@@ -16,9 +17,18 @@ class FilesystemServiceProvider implements ServiceProviderInterface
     public function register(ContainerInterface $container): void
     {
         $container->singleton(FilesystemManager::class, function (ContainerInterface $container) {
+            $root = null;
+            if ($container->has('path.storage')) {
+                $storagePath = $container->get('path.storage');
+                if (!is_string($storagePath) || $storagePath === '') {
+                    throw new \InvalidArgumentException('path.storage must be a non-empty string');
+                }
+                $root = rtrim($storagePath, '/') . '/app';
+            }
+
             return new FilesystemManager(
-                $container->get(\Denosys\Config\ConfigurationInterface::class),
-                $container->get('path.storage') . '/app'
+                $container->get(ConfigurationReaderInterface::class),
+                $root
             );
         });
 
