@@ -24,6 +24,13 @@ $config = new class implements ConfigurationReaderInterface {
         return match ($key) {
             'filesystems.default' => 'local',
             'filesystems.disks.local' => ['driver' => 'local'],
+            'filesystems.disks.s3' => [
+                'driver' => 's3',
+                'key' => 'test-key',
+                'secret' => 'test-secret',
+                'region' => 'us-east-1',
+                'bucket' => 'test-bucket',
+            ],
             default => $default,
         };
     }
@@ -37,6 +44,7 @@ try {
     $direct = new FilesystemManager($config, $directory . '/direct');
     check($direct->disk()->put('probe.txt', 'direct'), 'Direct manager write failed');
     check(file_get_contents($directory . '/direct/probe.txt') === 'direct', 'Direct manager used the wrong root');
+    check($direct->disk('s3') instanceof FilesystemInterface, 'S3 adapter construction failed');
 
     $container = new Container();
     $container->instance(ConfigurationReaderInterface::class, $config);

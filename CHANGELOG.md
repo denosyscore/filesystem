@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.3.2
+
+- Raise the Flysystem minimum to its patched path-normalization release and exclude advised AWS SDK, Guzzle, PSR-7, and JMESPath transitive versions without adding unnecessary direct dependencies.
+- Audit both current and lowest supported Composer resolutions in CI.
+
 ## v0.3.1
 
 - Exclude container and events releases with invalid autoload mappings from the supported dependency range.

@@ -47,3 +47,6 @@ jobs:
 
       - name: Standalone integration
         run: composer test
+
+      - name: Audit locked dependency set
+        run: composer audit --locked
