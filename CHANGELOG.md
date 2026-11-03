@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.3.1
+
+- Exclude container and events releases with invalid autoload mappings from the supported dependency range.
+- Exercise lowest and highest Composer resolutions in CI.
+
 ## v0.3.0
 
 - Use an installable shared configuration read contract for the filesystem manager and provider.

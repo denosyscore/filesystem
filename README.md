@@ -6,8 +6,10 @@ Filesystem management and disk abstractions
 
 composer require denosyscore/filesystem
 
-Version 0.3 requires `denosyscore/contracts` 0.2.4 or newer within the 0.2
-series and installs `denosyscore/container` directly for its service provider.
+Version 0.3.1 requires `denosyscore/contracts` 0.2.4 or newer and
+`denosyscore/container` and `denosyscore/events` 0.2.2 or newer within their
+0.2 series. The explicit minimums exclude earlier releases with unusable
+autoload mappings, including when Composer selects the lowest allowed versions.
 
 ## Configuration
 
@@ -49,6 +51,6 @@ composer test
 
 ## CI Workflows
 
-- CI: composer validation, PHP syntax lint, and standalone integration on PHP 8.2 and 8.5.
+- CI: composer validation, PHP syntax lint, and standalone integration with highest dependencies on PHP 8.2 and 8.5 and lowest dependencies on PHP 8.2.
 - Release: GitHub release publication on semantic version tags.
 - Dependabot: weekly Composer dependency update checks.
