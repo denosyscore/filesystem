@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased (proposed v0.3.3)
+
+- Require Symfony Filesystem 7.4.23 or newer in the 7.x line to exclude the
+  path containment vulnerability in GHSA-6prc-h956-hxjq. The package API is
+  unchanged.
+
 ## v0.3.2
 
 - Raise the Flysystem minimum to its patched path-normalization release and exclude advised AWS SDK, Guzzle, PSR-7, and JMESPath transitive versions without adding unnecessary direct dependencies.
