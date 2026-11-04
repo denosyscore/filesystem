@@ -13,6 +13,8 @@ autoload mappings, including when Composer selects the lowest allowed versions.
 Version 0.3.2 also excludes third-party releases with published advisories
 from the supported dependency range. CI audits current and lowest Composer
 resolutions so a supported installation can select a clean set.
+Version 0.3.3 requires Symfony Filesystem 7.4.23 or newer in the 7.x line
+because earlier releases are affected by GHSA-6prc-h956-hxjq.
 
 ## Configuration
 
