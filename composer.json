@@ -12,7 +12,8 @@
     "denosyscore/events": "^0.2.2"
   },
   "require-dev": {
-    "league/flysystem-aws-s3-v3": "^3.30"
+    "league/flysystem-aws-s3-v3": "^3.30",
+    "phpstan/phpstan": "^2.1"
   },
   "suggest": {
     "league/flysystem-aws-s3-v3": "Required for disks that use the s3 driver"
@@ -29,7 +30,8 @@
     }
   },
   "scripts": {
-    "test": "php tests/standalone.php"
+    "test": "php tests/standalone.php",
+    "analyse": "phpstan analyse --no-progress --memory-limit=1G"
   },
   "config": {
     "sort-packages": true
