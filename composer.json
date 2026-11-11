@@ -7,7 +7,7 @@
     "php": "^8.2",
     "league/flysystem": "^3.35.3",
     "symfony/filesystem": "^7.4.23",
-    "denosyscore/container": "^0.2.2",
+    "denosyscore/container": "^0.2.2 || ^1.0.0",
     "denosyscore/contracts": "^0.2.4",
     "denosyscore/events": "^0.2.2"
   },
