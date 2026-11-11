@@ -1,6 +1,17 @@
 # Changelog
 
-## Unreleased (proposed v0.3.3)
+## v0.4.0 – 2026-11-11
+
+### Changed (breaking)
+
+- `league/flysystem-aws-s3-v3` is now suggested instead of required, so
+  applications without S3 disks no longer install the AWS SDK. Applications
+  that configure an `s3` disk must run
+  `composer require league/flysystem-aws-s3-v3`; resolving an `s3` disk
+  without it throws a `RuntimeException` that names that command.
+- CI installs without development dependencies to test that error.
+
+## v0.3.3
 
 - Require Symfony Filesystem 7.4.23 or newer in the 7.x line to exclude the
   path containment vulnerability in GHSA-6prc-h956-hxjq. The package API is

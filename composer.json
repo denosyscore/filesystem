@@ -6,11 +6,16 @@
   "require": {
     "php": "^8.2",
     "league/flysystem": "^3.35.3",
-    "league/flysystem-aws-s3-v3": "^3.30",
     "symfony/filesystem": "^7.4.23",
     "denosyscore/container": "^0.2.2",
     "denosyscore/contracts": "^0.2.4",
     "denosyscore/events": "^0.2.2"
+  },
+  "require-dev": {
+    "league/flysystem-aws-s3-v3": "^3.30"
+  },
+  "suggest": {
+    "league/flysystem-aws-s3-v3": "Required for disks that use the s3 driver"
   },
   "conflict": {
     "aws/aws-sdk-php": "<3.371.4",
