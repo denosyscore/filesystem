@@ -36,6 +36,10 @@ $config = new class implements ConfigurationReaderInterface {
     }
 };
 
+$composer = json_decode((string) file_get_contents(dirname(__DIR__) . '/composer.json'), true, flags: JSON_THROW_ON_ERROR);
+check(!isset($composer['require']['league/flysystem-aws-s3-v3']), 'The S3 adapter must be optional, not installed for every application');
+check(isset($composer['suggest']['league/flysystem-aws-s3-v3']), 'The S3 adapter must be suggested for applications that use S3 disks');
+
 $originalDirectory = getcwd();
 $directory = sys_get_temp_dir() . '/denosys-filesystem-' . bin2hex(random_bytes(6));
 mkdir($directory, 0700);
@@ -44,7 +48,16 @@ try {
     $direct = new FilesystemManager($config, $directory . '/direct');
     check($direct->disk()->put('probe.txt', 'direct'), 'Direct manager write failed');
     check(file_get_contents($directory . '/direct/probe.txt') === 'direct', 'Direct manager used the wrong root');
-    check($direct->disk('s3') instanceof FilesystemInterface, 'S3 adapter construction failed');
+    if (class_exists(\League\Flysystem\AwsS3V3\AwsS3V3Adapter::class)) {
+        check($direct->disk('s3') instanceof FilesystemInterface, 'S3 adapter construction failed');
+    } else {
+        try {
+            $direct->disk('s3');
+            check(false, 'S3 disk resolved without its adapter installed');
+        } catch (RuntimeException $exception) {
+            check(str_contains($exception->getMessage(), 'composer require league/flysystem-aws-s3-v3'), 'Missing S3 adapter error does not say how to install it');
+        }
+    }
 
     $container = new Container();
     $container->instance(ConfigurationReaderInterface::class, $config);
